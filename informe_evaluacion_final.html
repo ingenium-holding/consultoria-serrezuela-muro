@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe de Evaluación de Proponentes — Convocatoria N.001-2026 — Muro Perimetral Quintas de Serrezuela</title>
+<style>
+  :root {
+    --color-primary: #1a3a6e;
+    --color-secondary: #3d6ba5;
+    --color-accent: #c8a951;
+    --color-bg: #fafafa;
+    --color-card: #ffffff;
+    --color-border: #d6d9e0;
+    --color-text: #1f2430;
+    --color-muted: #5a6270;
+    --color-cumple: #e8f5e9;
+    --color-cumple-border: #2e7d32;
+    --color-observacion: #fff8e1;
+    --color-observacion-border: #f9a825;
+    --color-nocumple: #ffebee;
+    --color-nocumple-border: #c62828;
+    --color-info: #e3f2fd;
+    --color-info-border: #1565c0;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--color-text);
+    background: var(--color-bg);
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 30px 36px 80px 36px;
+    background: var(--color-card);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  }
+  header.title {
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 22px;
+    margin-bottom: 28px;
+  }
+  header.title .badge {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    margin-bottom: 14px;
+  }
+  header.title h1 {
+    font-size: 26px;
+    color: var(--color-primary);
+    margin: 0 0 6px 0;
+    line-height: 1.25;
+  }
+  header.title h2 {
+    font-size: 17px;
+    color: var(--color-secondary);
+    margin: 0 0 14px 0;
+    font-weight: 500;
+  }
+  header.title .meta {
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+  header.title .meta strong { color: var(--color-text); }
+
+  h2.section {
+    font-size: 20px;
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 6px;
+    margin-top: 42px;
+    margin-bottom: 18px;
+  }
+  h3.subsection {
+    font-size: 16px;
+    color: var(--color-secondary);
+    margin-top: 26px;
+    margin-bottom: 12px;
+  }
+  h4 {
+    font-size: 14px;
+    color: var(--color-text);
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+  p { margin: 0 0 12px 0; }
+  ul, ol { margin: 0 0 12px 0; padding-left: 22px; }
+  li { margin-bottom: 4px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 16px 0;
+    font-size: 13px;
+  }
+  th, td {
+    border: 1px solid var(--color-border);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+  table.compact th, table.compact td { padding: 5px 8px; font-size: 12px; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  td.center { text-align: center; }
+  tr.total td { background: #eef2f9; font-weight: 700; }
+
+  .estado-cumple { background: var(--color-cumple); border-left: 3px solid var(--color-cumple-border); }
+  .estado-observacion { background: var(--color-observacion); border-left: 3px solid var(--color-observacion-border); }
+  .estado-nocumple { background: var(--color-nocumple); border-left: 3px solid var(--color-nocumple-border); }
+
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; }
+  .tag-cumple { background: var(--color-cumple); color: #1b5e20; border: 1px solid var(--color-cumple-border); }
+  .tag-observacion { background: var(--color-observacion); color: #6d4c00; border: 1px solid var(--color-observacion-border); }
+  .tag-nocumple { background: var(--color-nocumple); color: #8b0000; border: 1px solid var(--color-nocumple-border); }
+  .tag-ns { background: #eee; color: #444; border: 1px solid #aaa; font-size: 10px; }
+
+  .callout {
+    border-left: 4px solid var(--color-info-border);
+    background: var(--color-info);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 2px;
+    font-size: 13px;
+  }
+  .callout-warning {
+    border-left-color: var(--color-observacion-border);
+    background: var(--color-observacion);
+  }
+  .callout strong { color: var(--color-primary); }
+
+  nav.toc {
+    background: #f4f6fa;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 16px 22px;
+    margin: 0 0 30px 0;
+  }
+  nav.toc h3 {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  nav.toc ol { margin: 0; padding-left: 22px; font-size: 13px; }
+  nav.toc a { color: var(--color-text); text-decoration: none; }
+  nav.toc a:hover { color: var(--color-secondary); text-decoration: underline; }
+
+  .proponente-card {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-secondary);
+    background: #fff;
+    padding: 14px 18px;
+    margin: 14px 0;
+    border-radius: 3px;
+  }
+  .proponente-card .prop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .proponente-card h3 { margin: 0; font-size: 15px; color: var(--color-primary); }
+  .proponente-card .nit { font-size: 12px; color: var(--color-muted); font-variant-numeric: tabular-nums; }
+
+  .grid-habilitantes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .grid-habilitantes .hab-box {
+    padding: 8px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    border: 1px solid;
+  }
+  .grid-habilitantes .hab-box .label {
+    display: block;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .hab-box.ok { background: var(--color-cumple); border-color: var(--color-cumple-border); color: #1b5e20; }
+  .hab-box.obs { background: var(--color-observacion); border-color: var(--color-observacion-border); color: #6d4c00; }
+  .hab-box.no { background: var(--color-nocumple); border-color: var(--color-nocumple-border); color: #8b0000; }
+
+  .nota-contratante {
+    border: 2px solid var(--color-primary);
+    background: #eef2f9;
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .nota-contratante strong { color: var(--color-primary); }
+
+  footer.signature {
+    margin-top: 50px;
+    padding-top: 22px;
+    border-top: 2px solid var(--color-primary);
+    font-size: 13px;
+    color: var(--color-muted);
+  }
+
+  @media print {
+    body { background: #fff; }
+    .container { box-shadow: none; padding: 0 12px; max-width: none; }
+    h2.section { page-break-after: avoid; }
+    .proponente-card { page-break-inside: avoid; }
+    table { page-break-inside: auto; }
+    tr { page-break-inside: avoid; page-break-after: auto; }
+    .no-print { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="title">
+  <span class="badge">Informe de Evaluación — Consolidado</span>
+  <h1>Informe de Evaluación de Proponentes</h1>
+  <h2>Convocatoria N.001-2026 — Construcción del Muro de Cerramiento Perimetral<br>
+      Agrupación de Vivienda Quintas de Serrezuela P.H.</h2>
+  <div class="meta">
+    <strong>Elaborado por:</strong> Ingenium Holding Corp S.A.S. — Consultoría e Interventoría &nbsp;|&nbsp;
+    <strong>Contrato de consultoría:</strong> INVIHC-028 &nbsp;|&nbsp;
+    <strong>Dirigido a:</strong> Agrupación de Vivienda Quintas de Serrezuela P.H. &nbsp;|&nbsp;
+    <strong>Fecha de emisión:</strong> 14 de abril de 2026 &nbsp;|&nbsp;
+    <strong>Versión:</strong> 1.1 (valores ajustados sobre cuadro comparativo oficial)
+  </div>
+</header>
+
+<nav class="toc">
+  <h3>Contenido</h3>
+  <ol>
+    <li><a href="#sec-1">Datos generales del proceso</a></li>
+    <li><a href="#sec-2">Antecedentes y marco contractual</a></li>
+    <li><a href="#sec-3">Metodología de evaluación documental</a></li>
+    <li><a href="#sec-4">Proponentes participantes</a></li>
+    <li><a href="#sec-5">Resultados del análisis habilitante por proponente</a>
+      <ol>
+        <li><a href="#sec-5-1">Franja Construcciones S.A.S.</a></li>
+        <li><a href="#sec-5-2">Artecon Arquitectos Ingenieros S.A.S.</a></li>
+        <li><a href="#sec-5-3">EIP Constructora y Mantenimientos S.A.S.</a></li>
+        <li><a href="#sec-5-4">Zabala Ingenieros S.A.S.</a></li>
+      </ol>
+    </li>
+    <li><a href="#sec-6">Evaluación técnica ponderada</a></li>
+    <li><a href="#sec-7">Evaluación económica comparativa</a></li>
+    <li><a href="#sec-8">Cuadro consolidado final</a></li>
+    <li><a href="#sec-9">Nota al Contratante</a></li>
+    <li><a href="#sec-10">Anexos</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 1 ============ -->
+<h2 class="section" id="sec-1">1. Datos generales del proceso</h2>
+
+<table>
+  <tr><th style="width:240px">Campo</th><th>Valor</th></tr>
+  <tr><td>Objeto del proceso</td><td>Construcción del muro de cerramiento perimetral de la copropiedad Quintas de Serrezuela.</td></tr>
+  <tr><td>Convocatoria</td><td>N.001-2026</td></tr>
+  <tr><td>Contratante</td><td>Agrupación de Vivienda Quintas de Serrezuela P.H. (NIT 832.001.552-7)</td></tr>
+  <tr><td>Contrato de consultoría</td><td>INVIHC-028 — Ingenium Holding Corp S.A.S.</td></tr>
+  <tr><td>Documento rector del proceso</td><td>Términos de Referencia "AVQS — Términos de Referencia Muro de Cerramiento Perimetral" (30 págs), Carta de Invitación a Convocatoria, Circular 001 del 13 de febrero de 2026.</td></tr>
+  <tr><td>Visita técnica obligatoria</td><td>12 de febrero de 2026 (Circular 001 registra 14 empresas habilitadas).</td></tr>
+  <tr><td>Propuestas recibidas al cierre</td><td>4 (cuatro)</td></tr>
+  <tr><td>Alcance del entregable</td><td>Hito 3 de la Cláusula Quinta del contrato INVIHC-028: Informe de Evaluación de Proponentes + cuadro comparativo (20 % del valor del contrato de consultoría).</td></tr>
+</table>
+
+<!-- ============ 2 ============ -->
+<h2 class="section" id="sec-2">2. Antecedentes y marco contractual</h2>
+
+<p>El presente informe consolida el análisis documental de las cuatro (4) propuestas recibidas dentro de la Convocatoria N.001-2026 para la construcción del muro de cerramiento perimetral de la Agrupación de Vivienda Quintas de Serrezuela P.H. El análisis fue desarrollado por Ingenium Holding Corp S.A.S. en el marco del contrato de consultoría INVIHC-028 (13 de enero de 2026), cuyo Hito 3 contempla la entrega del presente informe y del cuadro comparativo económico.</p>
+
+<p>Los documentos rectores del proceso evaluativo son:</p>
+<ul>
+  <li>Contrato de consultoría INVIHC-028 (13 de enero de 2026).</li>
+  <li>Cotización IHC 1360 — alcance del entregable.</li>
+  <li>Términos de Referencia AVQS — Convocatoria N.001-2026.</li>
+  <li>Carta de Invitación a Convocatoria.</li>
+  <li>Circular 001 del 13 de febrero de 2026 — listado oficial de asistentes a la visita técnica obligatoria (12 de febrero de 2026).</li>
+</ul>
+
+<p>En caso de discrepancia documental, se aplica la regla de prelación del numeral 4.5 del TDR (prelación del TDR sobre la Carta de Invitación y comunicaciones posteriores). Para los presupuestos detallados aportados por los proponentes, la oferta económica oficial corresponde al presupuesto detallado final (reflejando el alcance posterior al ajuste por adenda), de conformidad con la regla metodológica adoptada durante el proceso.</p>
+
+<!-- ============ 3 ============ -->
+<h2 class="section" id="sec-3">3. Metodología de evaluación documental</h2>
+
+<p>La evaluación se desarrolló en tres etapas, conforme al numeral 9.1 del TDR:</p>
+
+<ol>
+  <li><strong>Verificación de requisitos habilitantes</strong> — revisión documental paquete por paquete (Jurídico, Experiencia, Personal clave y equipos, SG-SST, Financiero), contrastada contra el checklist extraído del TDR (<code>matrices/checklist_tdr.md</code>).</li>
+  <li><strong>Evaluación técnica ponderada</strong> — calificación por criterio conforme al numeral 9.5.1 del TDR sobre las propuestas técnicas aportadas.</li>
+  <li><strong>Evaluación económica</strong> — verificación del Formulario Oficial de Cantidades, coherencia de precios unitarios y comparativo numérico de las cuatro ofertas.</li>
+</ol>
+
+<p>Cada requisito fue clasificado con los siguientes estados documentales:</p>
+
+<table>
+  <tr><th>Estado</th><th>Significado</th></tr>
+  <tr class="estado-cumple"><td><span class="tag tag-cumple">Cumple</span></td><td>La documentación aportada satisface el requisito del TDR.</td></tr>
+  <tr class="estado-observacion"><td><span class="tag tag-observacion">Cumple con observación</span></td><td>La documentación satisface el requisito pero presenta una observación formal o material.</td></tr>
+  <tr class="estado-nocumple"><td><span class="tag tag-nocumple">No cumple</span></td><td>La documentación aportada no satisface el requisito del TDR.</td></tr>
+</table>
+
+<p>Cada hallazgo fue adicionalmente clasificado según su naturaleza: <strong>subsanable</strong> o <strong>no subsanable</strong>, conforme al numeral 7.6 del TDR. Los hallazgos clasificados como no subsanables son señalados expresamente en el informe.</p>
+
+<p><strong>Ponderación de la evaluación técnica y económica</strong> (numeral 9.5.1 del TDR):</p>
+
+<table class="compact">
+  <tr><th>Criterio</th><th class="num" style="width:70px">Peso</th><th>Sub-criterios principales</th></tr>
+  <tr><td>Experiencia específica</td><td class="num">25 %</td><td>Número de contratos, valor, complejidad, similitud tipológica, resultados</td></tr>
+  <tr><td>Equipo de trabajo</td><td class="num">20 %</td><td>Idoneidad, perfiles profesionales, experiencia del personal clave, coherencia con el proyecto</td></tr>
+  <tr><td>Metodología y plan de ejecución</td><td class="num">20 %</td><td>Enfoque técnico, secuencia constructiva, identificación de riesgos, cronograma</td></tr>
+  <tr><td>Capacidad financiera</td><td class="num">15 %</td><td>Solidez, liquidez, endeudamiento, capacidad para ejecutar el contrato</td></tr>
+  <tr><td>Sistema de Gestión de SST</td><td class="num">10 %</td><td>Nivel de madurez del SG-SST y cumplimiento normativo</td></tr>
+  <tr><td>Propuesta económica</td><td class="num">10 %</td><td>Razonabilidad y coherencia de precios unitarios y valor total</td></tr>
+  <tr class="total"><td>Total</td><td class="num">100 %</td><td></td></tr>
+</table>
+
+<div class="callout">
+  <strong>Alcance del rol del consultor.</strong> Ingenium Holding Corp S.A.S. actúa exclusivamente como evaluador documental. El presente informe presenta los hallazgos del análisis documental de las cuatro propuestas y los puntajes ponderados calculados conforme al TDR, como insumo para la decisión del Contratante. La determinación sobre la habilitación de cada proponente, la aplicación del numeral 7.6 del TDR y la adjudicación del contrato corresponde exclusivamente a la Agrupación de Vivienda Quintas de Serrezuela P.H., en los términos de la Cláusula Segunda del contrato INVIHC-028 y del numeral 10.3 del TDR.
+</div>
+
+<!-- ============ 4 ============ -->
+<h2 class="section" id="sec-4">4. Proponentes participantes</h2>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>Razón social</th>
+    <th>NIT</th>
+    <th>Representante legal</th>
+    <th>Ciudad</th>
+    <th>Modalidad</th>
+  </tr>
+  <tr>
+    <td>01</td>
+    <td>Franja Construcciones S.A.S.</td>
+    <td>900.272.250-6</td>
+    <td>Francy Oliva Gómez Velandia</td>
+    <td>Mosquera (Cund.)</td>
+    <td>Documental digital + Anexo 1 xlsx</td>
+  </tr>
+  <tr>
+    <td>02</td>
+    <td>Artecon Arquitectos Ingenieros S.A.S.</td>
+    <td>830.081.986-4</td>
+    <td>Luis Eduardo Franco Infante</td>
+    <td>Bogotá D.C.</td>
+    <td>Documental digital + Anexo 1 xlsx</td>
+  </tr>
+  <tr>
+    <td>03</td>
+    <td>EIP Constructora y Mantenimientos S.A.S.</td>
+    <td>901.058.099-7</td>
+    <td>Hugo Francisco Muñoz Rodríguez</td>
+    <td>Zipaquirá (Cund.)</td>
+    <td>PDF consolidado 133 págs + cotización separada</td>
+  </tr>
+  <tr>
+    <td>04</td>
+    <td>Zabala Ingenieros S.A.S.</td>
+    <td>900.021.436-2</td>
+    <td>Ingrid Maryori Zabala Rodríguez</td>
+    <td>Bogotá D.C.</td>
+    <td>PDF consolidado 227 págs + juegos EEFF externos + presupuesto xlsx</td>
+  </tr>
+</table>
+
+<p><strong>Observaciones de identificación jurídica:</strong> La Circular 001 registró variantes de nombre ("ARTECON/ARTECOM" y "ZABCA Ingeniería") que fueron resueltas mediante contraste con el Certificado de Cámara de Comercio de cada proponente. En ambos casos se confirma que no existe inconsistencia jurídica; las variantes corresponden a errores de transcripción.</p>
+
+<!-- ============ 5 ============ -->
+<h2 class="section" id="sec-5">5. Resultados del análisis habilitante por proponente</h2>
+
+<p>A continuación se presentan los resultados consolidados del análisis documental de los cinco paquetes habilitantes del TDR (Jurídico, Experiencia, Personal y equipos, SG-SST y Financiero) para cada una de las cuatro propuestas. Los hallazgos detallados por requisito se encuentran en los archivos individuales <code>informes/hallazgos/0X_*.md</code> y constituyen anexos del presente informe.</p>
+
+<!-- ============ 5.1 Franja ============ -->
+<h3 class="subsection" id="sec-5-1">5.1 Franja Construcciones S.A.S.</h3>
+
+<div class="proponente-card">
+  <div class="prop-header">
+    <h3>Franja Construcciones S.A.S.</h3>
+    <span class="nit">NIT 900.272.250-6 · Matrícula CCB Facatativá 94333 · Constituida 03-mar-2009</span>
+  </div>
+
+  <div class="grid-habilitantes">
+    <div class="hab-box obs"><span class="label">Jurídico</span>Cumple con observaciones</div>
+    <div class="hab-box no"><span class="label">Experiencia</span>Hallazgos en req. NS</div>
+    <div class="hab-box no"><span class="label">Personal y equipos</span>Hallazgos en req. NS</div>
+    <div class="hab-box ok"><span class="label">SG-SST</span>Cumple (86,25 % ACEPTABLE)</div>
+    <div class="hab-box obs"><span class="label">Financiero</span>Cumple con observaciones</div>
+  </div>
+
+  <h4>Hallazgos en requisitos no subsanables (numeral 7.6 TDR)</h4>
+  <ul>
+    <li><strong>Experiencia (numeral 7.2 TDR — E-01, E-02, E-03).</strong> La documentación no contiene el mínimo de tres (3) certificaciones en obras similares. Se aportan dos contratos suscritos (Solinoff 2012 por $1.230M — no obra similar; Aldemar 2017 por $370M — similitud parcial, por debajo del umbral individual de $500M) y una relación interna sin firma de contratantes. Ninguno de los soportes aportados cumple simultáneamente los requisitos de número, valor y similitud tipológica.</li>
+    <li><strong>Personal clave y equipos (numeral 7.3 TDR — P-01, P-02, P-03, Q-01).</strong> La documentación no contiene hoja de vida ni matrícula profesional del Director/Responsable Técnico, del Profesional SG-SST, del Residente de Obra, ni listado de equipos. En su lugar se aporta una carta del 5-mar-2026 suscrita por la representante legal indicando que estos soportes se presentarán en una etapa posterior a la preselección.</li>
+  </ul>
+
+  <h4>Cumplimientos y observaciones</h4>
+  <ul>
+    <li><strong>Jurídico:</strong> J-01 a J-09 presentes con dos observaciones subsanables — J-08 (certificado de antecedentes Policía no aportado) y J-09 (error mecanográfico de fecha "5 Marzo 2016" en declaración juramentada). Se registra como <em>observación relevante para conocimiento del Contratante</em>: el domicilio social de la proponente (Certificado CCB Facatativá, 16-feb-2026) corresponde a "Conjunto Quintas de Serrazuela, Casa C102", una unidad residencial dentro de la copropiedad contratante.</li>
+    <li><strong>SG-SST:</strong> Autoevaluación ARL SURA del 05-mar-2026 con calificación <strong>86,25 % ACEPTABLE</strong>, superior al mínimo de 80 puntos.</li>
+    <li><strong>Financiero:</strong> F-01 a F-07 aportados. Se identifican inconsistencias materiales en las cifras comparativas del año 2024 entre los distintos juegos de EEFF (tres valores distintos para el gasto de impuesto de renta; dos valores para la utilidad del ejercicio). Los ingresos operacionales de 2025 ($1.018M) son aproximadamente el 49 % del valor ofertado.</li>
+  </ul>
+
+  <h4>Propuesta técnica</h4>
+  <p>Procedimiento constructivo de tres (3) páginas con doce pasos secuenciales. No se aporta cronograma, matriz de riesgos, enfoque de coordinación con interventoría ni descripción formal del equipo técnico.</p>
+
+  <h4>Propuesta económica ajustada</h4>
+  <p><strong>$2.061.495.487</strong> (valor normalizado en el cuadro comparativo oficial, alcance 1.205,29 m). AIU 8 % / 4 % / 5 % sobre costos directos + IVA 19 % sobre utilidad. Se identifican precios unitarios comparativamente bajos en actividades relevantes (concreto ciclópeo −66 %, acero −47 %, excavaciones con tablaestacado −57 %, desmonte gavión −69 % frente a referencias de otras propuestas del proceso), que deberán ser objeto del análisis específico previsto en el numeral 9.5.2 del TDR sobre razonabilidad y precios artificialmente bajos.</p>
+</div>
+
+<!-- ============ 5.2 Artecon ============ -->
+<h3 class="subsection" id="sec-5-2">5.2 Artecon Arquitectos Ingenieros S.A.S.</h3>
+
+<div class="proponente-card">
+  <div class="prop-header">
+    <h3>Artecon Arquitectos Ingenieros S.A.S.</h3>
+    <span class="nit">NIT 830.081.986-4 · Matrícula CCB Bogotá 01056512 · Constituida 04-dic-2000</span>
+  </div>
+
+  <div class="grid-habilitantes">
+    <div class="hab-box ok"><span class="label">Jurídico</span>Cumple</div>
+    <div class="hab-box no"><span class="label">Experiencia</span>Hallazgos en req. NS</div>
+    <div class="hab-box obs"><span class="label">Personal y equipos</span>Observaciones subsanables</div>
+    <div class="hab-box ok"><span class="label">SG-SST</span>Cumple (100 % ACEPTABLE)</div>
+    <div class="hab-box no"><span class="label">Financiero</span>Hallazgo en req. NS</div>
+  </div>
+
+  <h4>Hallazgos en requisitos no subsanables (numeral 7.6 TDR)</h4>
+  <ul>
+    <li><strong>Experiencia (numeral 7.2 TDR — E-03).</strong> Las tres certificaciones aportadas corresponden a plantas industriales farmacéuticas y de productos de aseo bajo normas BPM: Fresenius Medical Care 2004 ($5.785M), Indulatex 2016 ($11.000M) y Laboratorios Siegfried 2025 ($80.663M). Ninguna corresponde a obras similares al objeto del presente proceso (muros de cerramiento, obras perimetrales, lineales o equivalentes). Observaciones adicionales: la certificación de Fresenius se expide a nombre del Arq. Luis Franco como persona natural y no a favor de la persona jurídica; las certificaciones de Indulatex y Siegfried se emiten con obras en ejecución (70 % y 50 % de avance respectivamente).</li>
+    <li><strong>Financiero (numeral 7.5 TDR — F-02).</strong> La documentación aportada no contiene estados financieros con corte al 31 de diciembre de 2025. El juego más reciente tiene corte semestral al 30 de junio de 2025. El documento presenta un crecimiento atípico del activo total (+189 %) y de los ingresos semestrales (+1.552 %) respecto al semestre anterior, que deberá ser contrastado una vez se aporten los estados con corte al 31-dic-2025.</li>
+  </ul>
+
+  <h4>Cumplimientos y observaciones</h4>
+  <ul>
+    <li><strong>Jurídico:</strong> J-01 a J-09 todos conformes. CCB expedido 19-feb-2026, antigüedad ~25 años.</li>
+    <li><strong>Personal clave y equipos:</strong> Profesionales titulados con matrículas CPNAA vigentes (Luis Eduardo Franco — 25700-24107, >25 años experiencia; Juliana Franco Solano — A15532020, ~5 años experiencia). Profesional SG-SST Clara Mercedes Márquez Cristo con Especialización en Salud Ocupacional. Observación: la experiencia documentada del equipo corresponde a proyectos de plantas industriales farmacéuticas bajo normas BPM, no a obras civiles lineales. El listado de equipos se aporta en formato de imagen JPEG sin firma formal. No se aportan cartas de asignación de roles al proyecto.</li>
+    <li><strong>SG-SST:</strong> Autoevaluación ARL SURA del 30-dic-2025 con calificación <strong>100 % ACEPTABLE</strong>.</li>
+  </ul>
+
+  <h4>Propuesta técnica</h4>
+  <p>No se identifica documento formal de metodología constructiva, cronograma ni matriz de riesgos. El portafolio institucional de la proponente lista más de 60 proyectos en plantas industriales farmacéuticas/cosméticas/alimenticias bajo normas BPM, sin referencias en obras civiles lineales o cerramientos perimetrales.</p>
+
+  <h4>Propuesta económica ajustada</h4>
+  <p><strong>$2.912.148.739</strong> (valor normalizado en el cuadro comparativo oficial, alcance 1.205,29 m). AIU 10 % / 5 % / 5 % sobre costos directos + IVA 19 % sobre utilidad. Administración del 10 % es la más alta entre los cuatro proponentes. Precios unitarios generalmente en rangos superiores a la media del mercado.</p>
+</div>
+
+<!-- ============ 5.3 EIP ============ -->
+<h3 class="subsection" id="sec-5-3">5.3 EIP Constructora y Mantenimientos S.A.S.</h3>
+
+<div class="proponente-card">
+  <div class="prop-header">
+    <h3>EIP Constructora y Mantenimientos S.A.S.</h3>
+    <span class="nit">NIT 901.058.099-7 · Matrícula CCB Bogotá 02786629 · Constituida 27-feb-2017</span>
+  </div>
+
+  <div class="grid-habilitantes">
+    <div class="hab-box ok"><span class="label">Jurídico</span>Cumple</div>
+    <div class="hab-box no"><span class="label">Experiencia</span>Hallazgos en req. NS</div>
+    <div class="hab-box no"><span class="label">Personal y equipos</span>Hallazgos en req. NS</div>
+    <div class="hab-box ok"><span class="label">SG-SST</span>Cumple (94,75 % ACEPTABLE)</div>
+    <div class="hab-box obs"><span class="label">Financiero</span>Cumple con observación</div>
+  </div>
+
+  <h4>Hallazgos en requisitos no subsanables (numeral 7.6 TDR)</h4>
+  <ul>
+    <li><strong>Experiencia (numeral 7.2 TDR — E-02 y E-03).</strong> Los cuatro soportes aportados no alcanzan el umbral individual mínimo de $500.000.000 y ninguno corresponde a obras similares al objeto contractual: Serviestaciones William Henao $312.153.230 (obra civil para estación de servicio), Conjunto Los Cedros Etapa 1 $58.158.200 (carpeta asfáltica), Carvajal Empaques $400.000.000 + IVA (mantenimientos locativos industriales), Conjunto La Herrería $136.874.700 (adoquín vehicular).</li>
+    <li><strong>Personal clave (numeral 7.3 TDR — P-01 y P-03).</strong> El Director de Obra propuesto (Andrés Sebastián Sarmiento) figura en su hoja de vida con "carrera profesional completada / pendiente de grado", condición que no acredita titulación profesional ni matrícula vigente; la experiencia profesional documentada es de aproximadamente cinco (5) años, inferior al mínimo de diez (10) años exigido. La Residente de Obra propuesta (Daniela Alejandra Pretelt Franco) figura "a la espera de la obtención del diploma"; la experiencia profesional documentada es de aproximadamente diez (10) meses originada en pasantía, inferior al mínimo de dos (2) años exigido.</li>
+  </ul>
+
+  <h4>Cumplimientos y observaciones</h4>
+  <ul>
+    <li><strong>Jurídico:</strong> J-01 a J-09 todos conformes. Antigüedad ~9 años; el cambio de denominación social de "Ecosistemas Industriales PET SAS" a la razón actual (Acta 008 del 01-jun-2023) no afecta la continuidad jurídica.</li>
+    <li><strong>Personal SG-SST:</strong> Claudia Marcela Romero Aldana cumple con licencia en Salud Ocupacional de la Secretaría de Salud de Bogotá (Resolución 2504 del 15-may-2020) y múltiples certificaciones de capacitación vigentes. Listado de equipos coherente con la metodología prevista (retroexcavadora, minicargador, equipo de perforación de pilotes, motobomba, mezcladora, vibrador, herramientas menores, equipo topográfico).</li>
+    <li><strong>SG-SST:</strong> Autoevaluación ARL SURA del 19-feb-2026 con calificación <strong>94,75 % ACEPTABLE</strong>.</li>
+    <li><strong>Financiero:</strong> Estados financieros comparativos 2023-2024 y 2024-2025 con corte al 31 de diciembre de 2025, firmados por el representante legal y el contador público William Olaya Ahumada (T.P. 106923-T). EIP es microempresa Grupo NIIF III, no obligada a revisor fiscal. Indicadores 2025: razón corriente 5,78; endeudamiento 14,1 %; capital de trabajo aproximado $527M. Se observa que la vigencia del certificado de antecedentes JCC del contador (03-dic-2025, tres meses) coincide con los primeros días de marzo de 2026, próxima al vencimiento a la fecha de presentación.</li>
+  </ul>
+
+  <h4>Propuesta técnica</h4>
+  <p>Cronograma Gantt detallado para plazo de aproximadamente 8 meses (14-mar-2026 a noviembre 2026). Actividades coherentes con el alcance del TDR. No se aporta documento formal de metodología constructiva ni matriz de riesgos. El plazo propuesto supera el plazo contractual referencial del numeral 11.2 del TDR (5 meses).</p>
+
+  <h4>Propuesta económica ajustada</h4>
+  <p><strong>$2.329.346.041</strong> (valor normalizado en el cuadro comparativo oficial tras aplicar las cantidades depuradas del formulario oficial; la cotización original CT-1629 del proponente presentó $2.359.690.699). AIU 5 % / 5 % / 5 % sobre costos directos + IVA 19 % sobre utilidad. Plazo 240 días (≈8 meses). Organización con 2 frentes, 10 técnicos, 1 residente, 1 SST.</p>
+</div>
+
+<!-- ============ 5.4 Zabala ============ -->
+<h3 class="subsection" id="sec-5-4">5.4 Zabala Ingenieros S.A.S.</h3>
+
+<div class="proponente-card">
+  <div class="prop-header">
+    <h3>Zabala Ingenieros S.A.S.</h3>
+    <span class="nit">NIT 900.021.436-2 · Constituida 02-may-2005 (~21 años)</span>
+  </div>
+
+  <div class="grid-habilitantes">
+    <div class="hab-box ok"><span class="label">Jurídico</span>Cumple</div>
+    <div class="hab-box ok"><span class="label">Experiencia</span>Cumple</div>
+    <div class="hab-box ok"><span class="label">Personal y equipos</span>Cumple</div>
+    <div class="hab-box ok"><span class="label">SG-SST</span>Cumple (100 % ACEPTABLE)</div>
+    <div class="hab-box obs"><span class="label">Financiero</span>Cumple con observaciones</div>
+  </div>
+
+  <h4>Cumplimientos y observaciones</h4>
+  <ul>
+    <li><strong>Jurídico:</strong> J-01 a J-09 todos conformes. CCB expedido 05-mar-2026. Antigüedad ~21 años.</li>
+    <li><strong>Experiencia:</strong> Doce (12) soportes de experiencia, incluyendo el contrato CA-HNH 002-2023 suscrito con Canapro P.H. (Password Constructora) por $3.422.837.148, cuyo objeto incluye expresamente obras civiles y <strong>muros de contención</strong>, con tipología y magnitud directamente comparables al objeto del presente proceso. La experiencia se complementa con certificaciones de ICC Ltda (Balcones de París $4.800M, Granja Central $5.750M) en cimentación y estructura. Observación subsanable: en los contratos con Edificio Av 92 PH firma el representante legal suplente Elver Jorge Zabala Sanabria; debe verificarse la facultad de representación en las fechas de firma.</li>
+    <li><strong>Personal clave y equipos:</strong>
+      <ul>
+        <li><em>Director / Responsable Técnico:</em> Ing. Elver Jorge Zabala Sanabria (Ingeniero Civil, Universidad Nacional de Colombia 1980; matrícula COPNIA 25202-03411 vigente; más de 45 años de experiencia).</li>
+        <li><em>Residente de Obra:</em> Ing. John Javier Nieto Ortega (Ingeniero Civil, Universidad Católica de Colombia 2021; matrícula COPNIA vigente; aproximadamente 4 años de experiencia profesional, incluyendo su desempeño como residente en el contrato Canapro con la propia Zabala).</li>
+        <li><em>Profesional SG-SST:</em> Julián Madrigal Montoya (Profesional en Gestión SST; licencia SST vigente expedida por la Secretaría de Salud de Bogotá — Resolución 4497 del 22-jun-2023 — y licencia complementaria de la Gobernación de Antioquia).</li>
+        <li><em>Equipos:</em> Cuadro de equipos incluido en el documento de metodología con disponibilidad del 100 % reportada.</li>
+      </ul>
+    </li>
+    <li><strong>SG-SST:</strong> Constancia de Positiva Compañía de Seguros del 15-ene-2026 con calificación <strong>100 % ACEPTABLE</strong>.</li>
+    <li><strong>Financiero:</strong> Estados financieros comparativos 2022-2023, 2023-2024 y 2024-2025 en juegos completos (Estado de Situación Financiera, Resultado Integral, Cambios en el Patrimonio, Flujo de Efectivo y Notas), firmados por la representante legal y el contador público Erickson Farian Beltrán Veloza (T.P. 124511-T). Zabala es microempresa, no obligada a revisor fiscal.</li>
+  </ul>
+
+  <h4>Observaciones materiales del análisis financiero (para consideración del Contratante)</h4>
+  <ol>
+    <li><strong>Inconsistencias entre juegos de EEFF 2024.</strong> Las cifras comparativas del año 2024 difieren entre el juego EEFF 2023-2024 y el juego EEFF 2024-2025 (Activo Total ~$87M de diferencia; Patrimonio ~$5M; Utilidad ~$5M), ambos firmados por la misma representante legal y el mismo contador público. Podría corresponder a reexpresión contable legítima o a error material. Se recomienda al Contratante solicitar aclaración formal y conciliación.</li>
+    <li><strong>Errores formales en el juego de EEFF 2025.</strong> El encabezado del documento registra "30 de diciembre" en lugar de "31 de diciembre" y la Nota 1 menciona "31 de marzo". Ambos errores se repiten de forma idéntica en el juego embebido en el PDF y en el archivo externo, sugiriendo errores de transcripción del contador público. Subsanable mediante ratificación formal.</li>
+    <li><strong>Estado de Resultados 2025.</strong> Omite la línea de costos separados y registra gastos administrativos por $320.000, cifra materialmente inconsistente con el volumen de operaciones declarado.</li>
+    <li><strong>Capacidad operacional frente al valor ofertado.</strong> Los ingresos ordinarios de 2025 ($445.689.017) son aproximadamente 4,6 veces inferiores a los de 2024 ($1.217M). La oferta económica oficial ($2.913M) representa aproximadamente 6,5 veces los ingresos anuales 2025.</li>
+  </ol>
+
+  <h4>Propuesta técnica</h4>
+  <p>Documento de Metodología de Ejecución y Plan de Obra de cuatro (4) páginas, sustancialmente más completo que el de los demás proponentes. Incluye: organización en dos frentes simultáneos; pilotes preexcavados D=25 cm con trípode malacate manual y fluidos estabilizadores (polímeros/bentoníticos); actas de vecindad con Matterport 360° para los 9 predios colindantes; especificaciones de concretos (ciclópeo 60/40; viga de cimentación 0,35×0,35 m; columnas 0,20×0,15 m; viga corona 21 MPa); mampostería estructural 13 MPa con altura de 2,20 m; hidrofugado Sika con garantía 10 años; cuadro de equipos con disponibilidad 100 %. Plazo global: 5 meses.</p>
+
+  <div class="callout callout-warning">
+    <strong>Exclusión expresa en el alcance de la oferta.</strong> El documento de metodología excluye expresamente la demolición de la cimentación del muro gavión existente. Se registra para conocimiento del Contratante: si el terreno de ejecución presenta restos de cimentación del gavión previo, dichos trabajos no están incluidos en el alcance de la oferta económica de la proponente.
+  </div>
+
+  <h4>Propuesta económica ajustada</h4>
+  <p><strong>$3.222.360.040</strong> (valor normalizado en el cuadro comparativo oficial del proceso, alcance 1.205,29 m). El xlsx original del proponente reportó $2.913.230.529 calculado con AIU en cascada (cada línea sobre la anterior en lugar de sobre costos directos) y presentaba una aparente duplicación del subtotal del capítulo 13 "Malla eslabonada"; el cuadro comparativo oficial normaliza ambas anomalías metodológicas aplicando AIU estándar 5 % / 5 % / 5 % sobre los costos directos del proponente, resultando en el valor aquí reportado. Precios unitarios sustancialmente superiores a la media del proceso en concreto ciclópeo ($894.000/m³), acero ($10.068/kg) y excavaciones manuales ($152.254/m).</p>
+</div>
+
+<!-- ============ 6 ============ -->
+<h2 class="section" id="sec-6">6. Evaluación técnica ponderada</h2>
+
+<p>La siguiente tabla presenta los puntajes asignados a cada proponente por criterio, conforme a la ponderación del numeral 9.5.1 del TDR. Los puntajes reflejan el grado de cumplimiento documental del criterio, con referencia a los archivos de hallazgos individuales. El detalle justificativo por criterio se encuentra en <code>matrices/matriz_evaluacion.md</code>.</p>
+
+<table>
+  <tr>
+    <th rowspan="2">Proponente</th>
+    <th colspan="6" style="text-align:center">Criterios — Puntaje sobre peso TDR 9.5.1</th>
+    <th rowspan="2">Total /100</th>
+  </tr>
+  <tr>
+    <th class="num" style="width:60px">Exp. (25)</th>
+    <th class="num" style="width:60px">Equipo (20)</th>
+    <th class="num" style="width:60px">Metod. (20)</th>
+    <th class="num" style="width:60px">Financ. (15)</th>
+    <th class="num" style="width:60px">SG-SST (10)</th>
+    <th class="num" style="width:60px">Econ. (10)</th>
+  </tr>
+  <tr>
+    <td>01 — Franja Construcciones S.A.S.</td>
+    <td class="num">6</td><td class="num">2</td><td class="num">7</td><td class="num">10</td><td class="num">8</td><td class="num">7</td>
+    <td class="num"><strong>40</strong></td>
+  </tr>
+  <tr>
+    <td>02 — Artecon Arquitectos Ingenieros S.A.S.</td>
+    <td class="num">13</td><td class="num">15</td><td class="num">9</td><td class="num">9</td><td class="num">10</td><td class="num">7</td>
+    <td class="num"><strong>63</strong></td>
+  </tr>
+  <tr>
+    <td>03 — EIP Constructora y Mantenimientos S.A.S.</td>
+    <td class="num">9</td><td class="num">9</td><td class="num">12</td><td class="num">11</td><td class="num">9</td><td class="num">8</td>
+    <td class="num"><strong>58</strong></td>
+  </tr>
+  <tr>
+    <td>04 — Zabala Ingenieros S.A.S.</td>
+    <td class="num">22</td><td class="num">18</td><td class="num">16</td><td class="num">10</td><td class="num">10</td><td class="num">6</td>
+    <td class="num"><strong>82</strong></td>
+  </tr>
+</table>
+
+<h3 class="subsection">6.1 Justificación resumida por criterio</h3>
+
+<h4>Experiencia específica (25 %)</h4>
+<table class="compact">
+  <tr><th>Proponente</th><th>Núm. soportes</th><th>Obra similar acreditada</th><th>Puntaje</th></tr>
+  <tr><td>Franja</td><td>2 contratos + relación interna</td><td>Aldemar $370M (similitud parcial, bajo umbral)</td><td class="num">6/25</td></tr>
+  <tr><td>Artecon</td><td>3 certificaciones ($97.448M agregados)</td><td>Ninguna bajo lectura estricta (plantas industriales con alta cuantía y complejidad técnica)</td><td class="num">13/25</td></tr>
+  <tr><td>EIP</td><td>4 soportes (~$907M agregados)</td><td>Ninguna bajo lectura estricta; ninguno alcanza $500M individual</td><td class="num">9/25</td></tr>
+  <tr><td>Zabala</td><td>12 soportes</td><td><strong>Canapro P.H. $3.422M (muros de contención 2023-2024)</strong></td><td class="num">22/25</td></tr>
+</table>
+
+<h4>Equipo de trabajo (20 %)</h4>
+<table class="compact">
+  <tr><th>Proponente</th><th>Director/Residente</th><th>Observaciones</th><th>Puntaje</th></tr>
+  <tr><td>Franja</td><td>No aportado</td><td>Carta de diferimiento a etapa posterior; puntaje residual por organización corporativa formal</td><td class="num">2/20</td></tr>
+  <tr><td>Artecon</td><td>Arquitectos titulados con matrícula CPNAA vigente; equipo senior</td><td>Trayectoria corporativa de 25 años; experiencia del equipo en plantas industriales, no en obras lineales</td><td class="num">15/20</td></tr>
+  <tr><td>EIP</td><td>Ambos "pendientes de grado/diploma"</td><td>Director ~5 años exp (TDR exige >10); Residente ~10 meses (TDR exige ≥2); SG-SST sí cumple con licencia vigente</td><td class="num">9/20</td></tr>
+  <tr><td>Zabala</td><td>Director Ing. Civil U.Nacional 1980, 45+ años; Residente Ing. Civil 2021, 4 años con exp. en Canapro</td><td>Todos los roles clave cubiertos por profesionales titulados con experiencia en obras similares</td><td class="num">18/20</td></tr>
+</table>
+
+<h4>Metodología y plan de ejecución (20 %)</h4>
+<table class="compact">
+  <tr><th>Proponente</th><th>Documentos aportados</th><th>Puntaje</th></tr>
+  <tr><td>Franja</td><td>Procedimiento constructivo 3 págs; sin cronograma ni matriz de riesgos</td><td class="num">7/20</td></tr>
+  <tr><td>Artecon</td><td>No se identifica metodología formal ni cronograma; alcance se infiere de APUs</td><td class="num">9/20</td></tr>
+  <tr><td>EIP</td><td>Cronograma Gantt detallado (~8 meses) aterrizado a la obra; sin metodología descriptiva ni matriz de riesgos</td><td class="num">12/20</td></tr>
+  <tr><td>Zabala</td><td>Metodología de 4 págs con pilotes preexcavados, 2 frentes, Matterport; sin matriz de riesgos formal</td><td class="num">16/20</td></tr>
+</table>
+
+<h4>Capacidad financiera (15 %)</h4>
+<table class="compact">
+  <tr><th>Proponente</th><th>Cifras clave</th><th>Observaciones</th><th>Puntaje</th></tr>
+  <tr><td>Franja</td><td>Activo $952M, Ingresos 2025 $1.018M</td><td>EEFF a 31-dic-2025 con inconsistencias 2024; ingresos cayeron 38% vs 2024</td><td class="num">10/15</td></tr>
+  <tr><td>Artecon</td><td>Activo $8.384M, Ingresos 1S2025 $18.029M</td><td>Solo corte 30-jun-2025 (hallazgo NS en F-02); robustez patrimonial reconocida</td><td class="num">9/15</td></tr>
+  <tr><td>EIP</td><td>Activo $782M, Patrimonio $671M</td><td>Razón corriente 5,78; endeudamiento 14,1%; EEFF a 31-dic-2025</td><td class="num">11/15</td></tr>
+  <tr><td>Zabala</td><td>Activo $1.859M, Ingresos 2025 $446M</td><td>Inconsistencias EEFF 2024, errores formales 2025, ER sin línea de costos, ingresos ≈7,2× inferior al valor ajustado</td><td class="num">10/15</td></tr>
+</table>
+
+<h4>Sistema de Gestión de SST (10 %)</h4>
+<table class="compact">
+  <tr><th>Proponente</th><th>Calificación SG-SST</th><th>ARL</th><th>Fecha</th><th>Puntaje</th></tr>
+  <tr><td>Franja</td><td class="num">86,25 % ACEPTABLE</td><td>SURA</td><td>05-mar-2026</td><td class="num">8/10</td></tr>
+  <tr><td>Artecon</td><td class="num"><strong>100,0 % ACEPTABLE</strong></td><td>SURA</td><td>30-dic-2025</td><td class="num">10/10</td></tr>
+  <tr><td>EIP</td><td class="num">94,75 % ACEPTABLE</td><td>SURA</td><td>19-feb-2026</td><td class="num">9/10</td></tr>
+  <tr><td>Zabala</td><td class="num"><strong>100,0 % ACEPTABLE</strong></td><td>Positiva Seguros</td><td>15-ene-2026</td><td class="num">10/10</td></tr>
+</table>
+
+<!-- ============ 7 ============ -->
+<h2 class="section" id="sec-7">7. Evaluación económica comparativa</h2>
+
+<p>Las cuatro propuestas corresponden al mismo alcance ajustado tras la adenda (longitud 1.205,29 m; el ítem 4.3 aparece eliminado en los cuatro presupuestos, confirmando el ajuste de alcance). Los valores que se presentan a continuación corresponden al <strong>cuadro comparativo oficial</strong> del proceso (archivo <code>Anexo 1. Cuadro de Actividades y Cantidades Ajustado-2.xlsx</code>), que aplica las cantidades depuradas del formulario oficial a los precios unitarios de cada proponente y normaliza la metodología del AIU cuando corresponde.</p>
+
+<table>
+  <tr>
+    <th>Proponente</th>
+    <th class="num">Costos Directos ajustados</th>
+    <th>AIU</th>
+    <th>IVA</th>
+    <th class="num">Valor total ajustado</th>
+    <th class="num">Δ vs mínimo</th>
+  </tr>
+  <tr>
+    <td>01 — Franja Construcciones</td>
+    <td class="num">$ 1.747.770.655</td>
+    <td>8 % / 4 % / 5 % (sobre CD)</td>
+    <td>19 % s/utilidad</td>
+    <td class="num"><strong>$ 2.061.495.487</strong></td>
+    <td class="num">—</td>
+  </tr>
+  <tr>
+    <td>03 — EIP Constructora</td>
+    <td class="num">$ 2.008.922.847</td>
+    <td>5 % / 5 % / 5 % (sobre CD)</td>
+    <td>19 % s/utilidad</td>
+    <td class="num"><strong>$ 2.329.346.041</strong></td>
+    <td class="num">+13,0 %</td>
+  </tr>
+  <tr>
+    <td>02 — Artecon Arq. Ing.</td>
+    <td class="num">$ 2.407.729.424</td>
+    <td>10 % / 5 % / 5 % (sobre CD)</td>
+    <td>19 % s/utilidad</td>
+    <td class="num"><strong>$ 2.912.148.739</strong></td>
+    <td class="num">+41,3 %</td>
+  </tr>
+  <tr>
+    <td>04 — Zabala Ingenieros</td>
+    <td class="num">$ 2.779.094.471</td>
+    <td>5 % / 5 % / 5 % (normalizado)</td>
+    <td>19 % s/utilidad</td>
+    <td class="num"><strong>$ 3.222.360.040</strong></td>
+    <td class="num">+56,3 %</td>
+  </tr>
+</table>
+
+<p><strong>Rango de ofertas:</strong> $1.160.864.553 (≈56 % entre la menor y la mayor). <strong>Media aritmética:</strong> $2.631.337.577. EIP se sitúa ≈$268M sobre la menor, Artecon ≈$851M y Zabala ≈$1.161M.</p>
+
+<div class="callout">
+  <strong>Nota sobre normalización del cuadro comparativo.</strong> El cuadro comparativo oficial del proceso (Excel de cantidades ajustadas) aplica las cantidades depuradas del formulario oficial a los precios unitarios de cada proponente y normaliza las metodologías de cálculo del AIU, con el fin de obtener valores directamente comparables. Por ello, los totales aquí presentados pueden diferir de los valores reportados en los archivos originales de cada proponente en dos casos relevantes:
+  <ul style="margin-top:6px">
+    <li><strong>EIP:</strong> cotización CT-1629 original $2.359.690.699 &rarr; valor normalizado $2.329.346.041 (diferencia −$30,3 M por recálculo con cantidades depuradas).</li>
+    <li><strong>Zabala:</strong> xlsx original $2.913.230.529 (calculado con AIU en cascada y con aparente duplicación del subtotal del capítulo 13) &rarr; valor normalizado $3.222.360.040 (diferencia +$309,1 M por corrección metodológica del AIU y consolidación correcta de los capítulos).</li>
+  </ul>
+  <strong>Los valores normalizados son los que se utilizan como referencia definitiva para el comparativo económico del proceso.</strong>
+</div>
+
+<h3 class="subsection">7.1 Observaciones por propuesta económica</h3>
+
+<div class="callout callout-warning">
+  <strong>Franja Construcciones — precios unitarios comparativamente bajos.</strong> Se identifican valores unitarios sustancialmente inferiores a los de las demás propuestas en actividades relevantes: concreto ciclópeo $300.000/m³ (−66 % vs $894.000 de Zabala); acero de refuerzo $5.300/kg (−47 % vs $10.068); desmonte de muro gavión $35.000/m (−69 % vs $113.500); excavaciones manuales con tablaestacado $65.000/m (−57 % vs $152.254). Este hallazgo debe ser objeto del análisis específico sobre razonabilidad y precios artificialmente bajos previsto en el numeral 9.5.2 del TDR.
+</div>
+
+<div class="callout callout-warning">
+  <strong>Zabala Ingenieros — observaciones sobre el Anexo 1 original.</strong> El xlsx original aportado por el proponente presentaba dos anomalías metodológicas: (i) AIU calculado en cascada (cada línea sobre la anterior en lugar de sobre costos directos); (ii) aparente duplicación del subtotal del capítulo 13 "Malla eslabonada" por $165.535.032 (valor idéntico al del capítulo 14 "Actividades varias" cuando el único ítem aportado 13.1 asciende a $11.570.614). Ambas anomalías fueron corregidas en el cuadro comparativo oficial al normalizar la metodología de AIU y consolidar correctamente los capítulos; el valor resultante ($3.222.360.040) refleja lo que el proponente efectivamente cobraría aplicando AIU estándar sobre sus costos directos. Se recomienda al Contratante obtener confirmación formal del proponente sobre el valor normalizado antes de cualquier decisión vinculante.
+</div>
+
+<h3 class="subsection">7.2 Comparativo por capítulo</h3>
+
+<p>La siguiente tabla presenta los subtotales por capítulo del Formulario Oficial de Cantidades ajustado, tomados directamente del cuadro comparativo oficial. Permite identificar dónde se concentran las diferencias económicas entre proponentes.</p>
+
+<table class="compact">
+  <tr>
+    <th>Capítulo</th>
+    <th class="num">Franja</th>
+    <th class="num">EIP</th>
+    <th class="num">Artecon</th>
+    <th class="num">Zabala</th>
+  </tr>
+  <tr>
+    <td>A. Preliminares</td>
+    <td class="num">$ 39.070.295</td>
+    <td class="num">$ 16.510.879</td>
+    <td class="num">$ 51.757.070</td>
+    <td class="num">$ 73.215.728</td>
+  </tr>
+  <tr>
+    <td>1. Desmonte y demoliciones</td>
+    <td class="num">$ 41.127.900</td>
+    <td class="num">$ 74.982.515</td>
+    <td class="num">$ 121.579.350</td>
+    <td class="num">$ 121.256.241</td>
+  </tr>
+  <tr>
+    <td>2. Excavaciones</td>
+    <td class="num">$ 76.392.990</td>
+    <td class="num">$ 51.745.655</td>
+    <td class="num">$ 60.264.500</td>
+    <td class="num">$ 179.826.296</td>
+  </tr>
+  <tr>
+    <td>3. Conformaciones y rellenos</td>
+    <td class="num">$ 49.932.900</td>
+    <td class="num">$ 52.920.624</td>
+    <td class="num">$ 133.324.000</td>
+    <td class="num">$ 167.958.098</td>
+  </tr>
+  <tr>
+    <td>4. Cimentación (pilotes, viga)</td>
+    <td class="num">$ 351.959.300</td>
+    <td class="num">$ 619.604.934</td>
+    <td class="num">$ 397.128.650</td>
+    <td class="num">$ 423.358.903</td>
+  </tr>
+  <tr>
+    <td>5. Mejoramientos (concreto ciclópeo)</td>
+    <td class="num">$ 82.261.042</td>
+    <td class="num">$ 94.691.955</td>
+    <td class="num">$ 137.101.738</td>
+    <td class="num">$ 245.137.907</td>
+  </tr>
+  <tr>
+    <td>6. Columnas y vigas</td>
+    <td class="num">$ 214.066.900</td>
+    <td class="num">$ 199.446.499</td>
+    <td class="num">$ 190.114.800</td>
+    <td class="num">$ 164.624.667</td>
+  </tr>
+  <tr>
+    <td>7. Mampostería estructural</td>
+    <td class="num">$ 565.010.640</td>
+    <td class="num">$ 612.037.331</td>
+    <td class="num">$ 760.301.200</td>
+    <td class="num">$ 731.211.169</td>
+  </tr>
+  <tr>
+    <td>8-12. Acero de refuerzo</td>
+    <td class="num">$ 260.801.493</td>
+    <td class="num">$ 231.276.796</td>
+    <td class="num">$ 369.058.717</td>
+    <td class="num">$ 495.399.817</td>
+  </tr>
+  <tr>
+    <td>13. Malla eslabonada</td>
+    <td class="num">$ 3.638.778</td>
+    <td class="num">$ 4.478.496</td>
+    <td class="num">$ 30.789.660</td>
+    <td class="num">$ 11.570.614</td>
+  </tr>
+  <tr>
+    <td>14. Actividades varias (ducterías, cajas, pasamuros, filtro)</td>
+    <td class="num">$ 67.147.194</td>
+    <td class="num">$ 51.227.163</td>
+    <td class="num">$ 187.099.400</td>
+    <td class="num">$ 165.535.032</td>
+  </tr>
+  <tr class="total">
+    <td>Costos Directos</td>
+    <td class="num">$ 1.747.770.655</td>
+    <td class="num">$ 2.008.922.847</td>
+    <td class="num">$ 2.407.729.424</td>
+    <td class="num">$ 2.779.094.471</td>
+  </tr>
+  <tr>
+    <td>Administración</td>
+    <td class="num">$ 139.821.652 (8 %)</td>
+    <td class="num">$ 100.446.142 (5 %)</td>
+    <td class="num">$ 240.772.942 (10 %)</td>
+    <td class="num">$ 138.954.724 (5 %)</td>
+  </tr>
+  <tr>
+    <td>Imprevistos</td>
+    <td class="num">$ 69.910.826 (4 %)</td>
+    <td class="num">$ 100.446.142 (5 %)</td>
+    <td class="num">$ 120.386.471 (5 %)</td>
+    <td class="num">$ 138.954.724 (5 %)</td>
+  </tr>
+  <tr>
+    <td>Utilidad</td>
+    <td class="num">$ 87.388.533 (5 %)</td>
+    <td class="num">$ 100.446.142 (5 %)</td>
+    <td class="num">$ 120.386.471 (5 %)</td>
+    <td class="num">$ 138.954.724 (5 %)</td>
+  </tr>
+  <tr>
+    <td>IVA (19 % s/utilidad)</td>
+    <td class="num">$ 16.603.821</td>
+    <td class="num">$ 19.084.767</td>
+    <td class="num">$ 22.873.430</td>
+    <td class="num">$ 26.401.397</td>
+  </tr>
+  <tr class="total">
+    <td>TOTAL</td>
+    <td class="num">$ 2.061.495.487</td>
+    <td class="num">$ 2.329.346.041</td>
+    <td class="num">$ 2.912.148.739</td>
+    <td class="num">$ 3.222.360.040</td>
+  </tr>
+</table>
+
+<p><strong>Lectura rápida por capítulo:</strong></p>
+<ul>
+  <li><em>Cimentación:</em> EIP tiene el mayor valor por unidad en pilotes preexcavados ($1.024.327 vs Franja $380.000 y Zabala $425.941), lo que eleva este capítulo a $619M frente a los $352M–$423M de los demás.</li>
+  <li><em>Mejoramientos (concreto ciclópeo):</em> Zabala reporta $894.000/m³, aproximadamente 3× el precio de Franja ($300.000/m³), lo que representa el mayor diferencial unitario del proceso.</li>
+  <li><em>Mampostería estructural:</em> todos los proponentes ofertan entre $565M y $760M; Artecon tiene el mayor valor por precio unitario más alto.</li>
+  <li><em>Acero de refuerzo:</em> Zabala $10.068/kg vs Franja $5.300/kg (+90 %); es el segundo diferencial unitario más relevante del proceso.</li>
+</ul>
+
+<!-- ============ 8 ============ -->
+<h2 class="section" id="sec-8">8. Cuadro consolidado final</h2>
+
+<p>El siguiente cuadro resume el análisis integral del proceso, combinando hallazgos habilitantes, puntaje técnico ponderado y valor económico oficial.</p>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>Proponente</th>
+    <th style="width:170px">Estado habilitante</th>
+    <th>Hallazgos en requisitos NS (numeral 7.6 TDR)</th>
+    <th class="num">Puntaje<br>/100</th>
+    <th class="num">Valor oficial</th>
+  </tr>
+  <tr class="estado-nocumple">
+    <td>01</td>
+    <td><strong>Franja Construcciones S.A.S.</strong></td>
+    <td><span class="tag tag-nocumple">Hallazgos en req. NS</span></td>
+    <td>Experiencia (E-01/E-02/E-03) y Personal y Equipos (P-01/P-02/P-03/Q-01). Observación relevante sobre domicilio social dentro de la copropiedad contratante.</td>
+    <td class="num">40</td>
+    <td class="num">$ 2.061.495.487</td>
+  </tr>
+  <tr class="estado-nocumple">
+    <td>02</td>
+    <td><strong>Artecon Arquitectos Ingenieros S.A.S.</strong></td>
+    <td><span class="tag tag-nocumple">Hallazgos en req. NS</span></td>
+    <td>Experiencia (E-03 obras similares) y Financiero (F-02 corte 31-dic-2025).</td>
+    <td class="num">63</td>
+    <td class="num">$ 2.912.148.739</td>
+  </tr>
+  <tr class="estado-nocumple">
+    <td>03</td>
+    <td><strong>EIP Constructora y Mantenimientos S.A.S.</strong></td>
+    <td><span class="tag tag-nocumple">Hallazgos en req. NS</span></td>
+    <td>Experiencia (E-02 umbral individual; E-03 obras similares) y Personal clave (P-01 y P-03 titulación profesional).</td>
+    <td class="num">58</td>
+    <td class="num">$ 2.329.346.041</td>
+  </tr>
+  <tr class="estado-cumple">
+    <td>04</td>
+    <td><strong>Zabala Ingenieros S.A.S.</strong></td>
+    <td><span class="tag tag-cumple">Cumple con observaciones subsanables</span></td>
+    <td>Sin hallazgos en requisitos NS. Observaciones subsanables en Experiencia (facultad de representación del suplente) y Financiero (inconsistencias entre juegos EEFF 2024, errores formales encabezados EEFF 2025, Estado de Resultados 2025 sin línea de costos, capacidad operacional 2025 inferior al valor ajustado).</td>
+    <td class="num">82</td>
+    <td class="num">$ 3.222.360.040</td>
+  </tr>
+</table>
+
+<h3 class="subsection">8.1 Recomendación técnica propuesta</h3>
+
+<div class="callout">
+  <p>A partir del análisis integrado de los cinco paquetes habilitantes, el puntaje técnico ponderado conforme al numeral 9.5.1 del TDR y el comparativo económico normalizado, esta consultoría presenta la siguiente <strong>recomendación técnica de apoyo</strong> a la decisión del Contratante:</p>
+
+  <ol>
+    <li><strong>Zabala Ingenieros S.A.S.</strong> se ubica en la primera posición relativa del análisis integral (82/100) por la mejor alineación entre experiencia acreditada (incluyendo obra similar específica en muros de contención por $3.422M con Canapro P.H.), estructura del equipo técnico (Director Ing. Civil con 45 años de experiencia y matrícula COPNIA vigente; Residente titulado con experiencia directa en obras similares), metodología constructiva documentada (pilotes preexcavados, 2 frentes simultáneos, actas digitales de vecindad) y correspondencia tipológica con el objeto contractual. La oferta económica de Zabala es la más alta del grupo y presenta observaciones financieras materiales que se relacionan en la sección 5.4; adicionalmente, la metodología aportada excluye expresamente la demolición de la cimentación del muro gavión existente.</li>
+
+    <li><strong>Artecon Arquitectos Ingenieros S.A.S.</strong> se ubica en segunda posición (63/100) por su solidez corporativa (25 años de trayectoria, equipo senior titulado, robustez patrimonial y calificación SG-SST 100 %). El análisis documental registra dos hallazgos en requisitos clasificados como no subsanables por el numeral 7.6 del TDR: la tipología de las certificaciones de experiencia (plantas industriales farmacéuticas) no se inscribe bajo lectura estricta en la categoría de obras similares del numeral 7.2, y los estados financieros aportados tienen corte al 30 de junio de 2025 en lugar del corte al 31 de diciembre de 2025 exigido por el numeral 7.5.</li>
+
+    <li><strong>EIP Constructora y Mantenimientos S.A.S.</strong> se ubica en tercera posición (58/100). Presenta la segunda oferta más baja con una estructura operativa competitiva y cronograma detallado, pero el análisis documental registra hallazgos en requisitos no subsanables en experiencia (ninguno de los cuatro soportes alcanza el umbral individual de $500M ni corresponde a obra similar) y personal clave (Director y Residente en condición de "pendientes de grado/diploma").</li>
+
+    <li><strong>Franja Construcciones S.A.S.</strong> se ubica en cuarta posición (40/100). Presenta la menor oferta económica del grupo pero también los hallazgos más extendidos en requisitos no subsanables, incluyendo la ausencia del paquete de personal y equipos (diferido por carta a una etapa posterior a la preselección) y precios unitarios comparativamente bajos que deberán ser objeto del análisis específico previsto en el numeral 9.5.2 del TDR.</li>
+  </ol>
+
+  <p><strong>La presente recomendación constituye un insumo técnico de apoyo para la decisión del Contratante</strong> y no implica adjudicación automática ni habilitación del proponente. De conformidad con la Cláusula Segunda del Contrato INVIHC-028 y el numeral 10.3 del TDR, la determinación sobre habilitación, aplicación del numeral 7.6 del TDR y adjudicación del contrato corresponde exclusivamente a la Agrupación de Vivienda Quintas de Serrezuela P.H.</p>
+</div>
+
+<!-- ============ 9 ============ -->
+<h2 class="section" id="sec-9">9. Nota al Contratante</h2>
+
+<div class="nota-contratante">
+  <p>El presente informe presenta el análisis documental consolidado de las cuatro (4) propuestas recibidas dentro de la Convocatoria N.001-2026. Los hallazgos por requisito, los puntajes ponderados conforme al numeral 9.5.1 del TDR y el comparativo económico se entregan como insumo integral para la decisión del Contratante.</p>
+
+  <p>De conformidad con la Cláusula Segunda del Contrato INVIHC-028 y el numeral 10.3 del TDR, <strong>la determinación sobre la habilitación de cada proponente, la aplicación del numeral 7.6 del TDR sobre los hallazgos en requisitos no subsanables, y la adjudicación del contrato corresponden exclusivamente a la Agrupación de Vivienda Quintas de Serrezuela P.H.</strong> El consultor no emite recomendación de adjudicación ni clasifica las propuestas como habilitadas o rechazadas.</p>
+
+  <p>Se recomienda al Contratante considerar los siguientes elementos al adoptar su decisión:</p>
+  <ol>
+    <li>Los hallazgos en requisitos clasificados como no subsanables por el numeral 7.6 del TDR para cada proponente (columna correspondiente del Cuadro Consolidado Final).</li>
+    <li>El puntaje técnico ponderado calculado sobre los seis criterios del numeral 9.5.1 del TDR.</li>
+    <li>El valor económico oficial de cada oferta y las observaciones sobre coherencia interna y razonabilidad identificadas en la sección 7 del presente informe.</li>
+    <li>La regla del numeral 9.5.2 del TDR, que faculta al Contratante para descartar propuestas con valores artificialmente bajos o inconsistentes.</li>
+    <li>Las observaciones relevantes consignadas en el análisis individual de cada proponente (sección 5), incluyendo la observación sobre vinculación entre una de las proponentes y la copropiedad contratante, la exclusión expresa de alcance contenida en la metodología de Zabala, y las observaciones financieras materiales.</li>
+  </ol>
+
+  <p>El consultor permanece a disposición del Contratante para aclaraciones, ampliaciones o para aportar la lectura técnica complementaria que pueda requerirse en cualquier momento del proceso de decisión.</p>
+</div>
+
+<!-- ============ 10 ============ -->
+<h2 class="section" id="sec-10">10. Anexos</h2>
+
+<table>
+  <tr><th>Anexo</th><th>Archivo</th><th>Contenido</th></tr>
+  <tr><td>A</td><td><code>matrices/checklist_tdr.md</code></td><td>Checklist TDR — lista maestra de requisitos por paquete.</td></tr>
+  <tr><td>B</td><td><code>matrices/matriz_habilitacion.md</code></td><td>Matriz de habilitación — cruces requisito × proponente.</td></tr>
+  <tr><td>C</td><td><code>matrices/matriz_evaluacion.md</code></td><td>Matriz de evaluación ponderada — detalle justificativo por criterio.</td></tr>
+  <tr><td>D1</td><td><code>informes/hallazgos/01_franja.md</code></td><td>Hallazgos detallados — Franja Construcciones S.A.S.</td></tr>
+  <tr><td>D2</td><td><code>informes/hallazgos/02_artecom.md</code></td><td>Hallazgos detallados — Artecon Arquitectos Ingenieros S.A.S.</td></tr>
+  <tr><td>D3</td><td><code>informes/hallazgos/03_eip.md</code></td><td>Hallazgos detallados — EIP Constructora y Mantenimientos S.A.S.</td></tr>
+  <tr><td>D4</td><td><code>informes/hallazgos/04_zabala.md</code></td><td>Hallazgos detallados — Zabala Ingenieros S.A.S.</td></tr>
+  <tr><td>E</td><td>(pendiente)</td><td>Cuadro comparativo económico — versión .xlsx (Fase 6).</td></tr>
+  <tr><td>F</td><td><code>logs/bitacora_proceso.md</code></td><td>Bitácora del proceso — registro cronológico de actividades, decisiones y observaciones.</td></tr>
+</table>
+
+<!-- ============ FOOTER ============ -->
+<footer class="signature">
+  <p><strong>Ingenium Holding Corp S.A.S.</strong> — Consultoría e Interventoría<br>
+  Contrato INVIHC-028 · Convocatoria N.001-2026 · Agrupación de Vivienda Quintas de Serrezuela P.H.<br>
+  Versión 1.0 — 14 de abril de 2026 — Borrador para revisión interna del Director antes de la remisión al Contratante.</p>
+
+  <p><em>Este documento refleja exclusivamente el análisis documental de las propuestas recibidas y se entrega como insumo para la decisión del Contratante. No constituye determinación de habilitación ni recomendación de adjudicación.</em></p>
+</footer>
+
+</div>
+</body>
+</html>
