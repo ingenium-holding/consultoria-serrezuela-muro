@@ -156,6 +156,75 @@
     color: var(--color-primary);
   }
 
+  /* ---------- GRÁFICOS ---------- */
+  .chart-card {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin: 24px 0;
+    box-shadow: 0 1px 3px rgba(20,30,60,0.03);
+  }
+  .chart-card .chart-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 4px 0;
+  }
+  .chart-card .chart-subtitle {
+    font-size: 13px;
+    color: var(--color-muted);
+    margin: 0 0 18px 0;
+  }
+  .chart-card svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .chart-card .chart-layout {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .chart-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    min-width: 180px;
+  }
+  .chart-legend .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .chart-legend .legend-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .chart-legend .legend-label {
+    flex: 1;
+    color: var(--color-text-soft);
+    line-height: 1.35;
+  }
+  .chart-legend .legend-value {
+    font-weight: 700;
+    color: var(--color-text);
+    font-variant-numeric: tabular-nums;
+  }
+  @media (max-width: 640px) {
+    .chart-card { padding: 18px 14px; }
+    .chart-card .chart-layout { gap: 16px; }
+    .chart-legend { font-size: 12px; min-width: 0; width: 100%; }
+  }
+
   /* ---------- TABLAS ---------- */
   .table-wrap {
     margin: 14px 0 22px 0;
@@ -622,6 +691,45 @@
   <tr class="total"><td>Total</td><td class="num">100 %</td><td></td></tr>
 </table>
 
+<div class="chart-card">
+  <p class="chart-title">Distribución de la ponderación</p>
+  <p class="chart-subtitle">Peso relativo de cada criterio sobre el puntaje total (100 %)</p>
+  <div class="chart-layout">
+    <svg viewBox="0 0 320 320" width="320" height="320" role="img" aria-label="Gráfico de distribución de la ponderación">
+      <!-- Experiencia 25% -->
+      <path d="M 160 40 A 120 120 0 0 1 280 160 L 225 160 A 65 65 0 0 0 160 95 Z" fill="#1a3a6e"/>
+      <!-- Equipo 20% -->
+      <path d="M 280 160 A 120 120 0 0 1 197.08 274.13 L 180.09 221.82 A 65 65 0 0 0 225 160 Z" fill="#3d6ba5"/>
+      <!-- Metodología 20% -->
+      <path d="M 197.08 274.13 A 120 120 0 0 1 62.92 230.53 L 107.41 198.21 A 65 65 0 0 0 180.09 221.82 Z" fill="#c8a951"/>
+      <!-- Financiero 15% -->
+      <path d="M 62.92 230.53 A 120 120 0 0 1 45.87 122.92 L 98.18 139.91 A 65 65 0 0 0 107.41 198.21 Z" fill="#5c6bc0"/>
+      <!-- SG-SST 10% -->
+      <path d="M 45.87 122.92 A 120 120 0 0 1 89.47 62.92 L 121.79 107.41 A 65 65 0 0 0 98.18 139.91 Z" fill="#43a047"/>
+      <!-- Económica 10% -->
+      <path d="M 89.47 62.92 A 120 120 0 0 1 160 40 L 160 95 A 65 65 0 0 0 121.79 107.41 Z" fill="#fb8c00"/>
+      <!-- Etiquetas de porcentaje -->
+      <text x="205" y="98" fill="#fff" font-family="Inter, sans-serif" font-size="14" font-weight="700" text-anchor="middle">25 %</text>
+      <text x="248" y="200" fill="#fff" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">20 %</text>
+      <text x="147" y="245" fill="#2c3243" font-family="Inter, sans-serif" font-size="13" font-weight="700" text-anchor="middle">20 %</text>
+      <text x="75" y="185" fill="#fff" font-family="Inter, sans-serif" font-size="12" font-weight="700" text-anchor="middle">15 %</text>
+      <text x="78" y="118" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="700" text-anchor="middle">10 %</text>
+      <text x="127" y="68" fill="#fff" font-family="Inter, sans-serif" font-size="11" font-weight="700" text-anchor="middle">10 %</text>
+      <!-- Centro del donut -->
+      <text x="160" y="155" fill="#1a3a6e" font-family="Inter, sans-serif" font-size="11" font-weight="600" text-anchor="middle">TDR</text>
+      <text x="160" y="175" fill="#1a3a6e" font-family="Inter, sans-serif" font-size="14" font-weight="700" text-anchor="middle">9.5.1</text>
+    </svg>
+    <div class="chart-legend">
+      <div class="legend-item"><span class="legend-swatch" style="background:#1a3a6e"></span><span class="legend-label">Experiencia específica</span><span class="legend-value">25 %</span></div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#3d6ba5"></span><span class="legend-label">Equipo de trabajo</span><span class="legend-value">20 %</span></div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#c8a951"></span><span class="legend-label">Metodología y plan de ejecución</span><span class="legend-value">20 %</span></div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#5c6bc0"></span><span class="legend-label">Capacidad financiera</span><span class="legend-value">15 %</span></div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#43a047"></span><span class="legend-label">Sistema de Gestión de SST</span><span class="legend-value">10 %</span></div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#fb8c00"></span><span class="legend-label">Propuesta económica</span><span class="legend-value">10 %</span></div>
+    </div>
+  </div>
+</div>
+
 <div class="callout">
   <strong>Alcance del rol del consultor.</strong> Ingenium Holding Corp S.A.S. actúa exclusivamente como evaluador documental. El presente informe presenta los hallazgos del análisis documental de las cuatro propuestas y los puntajes ponderados calculados conforme al TDR, como insumo para la decisión del Contratante. La determinación sobre la habilitación de cada proponente, la aplicación del numeral 7.6 del TDR y la adjudicación del contrato corresponde exclusivamente a la Agrupación de Vivienda Quintas de Serrezuela P.H., en los términos de la Cláusula Segunda del contrato INVIHC-028 y del numeral 10.3 del TDR.
 </div>
@@ -844,6 +952,57 @@
 
 <p>La siguiente tabla presenta los puntajes asignados a cada proponente por criterio, conforme a la ponderación del numeral 9.5.1 del TDR. Los puntajes reflejan el grado de cumplimiento documental del criterio, con referencia a los archivos de hallazgos individuales. El detalle justificativo por criterio se encuentra en <code>matrices/matriz_evaluacion.md</code>.</p>
 
+<div class="chart-card">
+  <p class="chart-title">Puntaje técnico ponderado por proponente</p>
+  <p class="chart-subtitle">Calificación sobre 100 puntos conforme al numeral 9.5.1 del TDR</p>
+  <svg viewBox="0 0 680 240" role="img" aria-label="Gráfico de barras horizontales del puntaje total por proponente">
+    <!-- Gridlines verticales -->
+    <g stroke="#e1e5ec" stroke-width="1">
+      <line x1="160" y1="15" x2="160" y2="215"/>
+      <line x1="260" y1="15" x2="260" y2="215"/>
+      <line x1="360" y1="15" x2="360" y2="215"/>
+      <line x1="460" y1="15" x2="460" y2="215"/>
+      <line x1="560" y1="15" x2="560" y2="215"/>
+      <line x1="660" y1="15" x2="660" y2="215"/>
+    </g>
+    <!-- Etiquetas del eje X (0, 20, 40, 60, 80, 100) -->
+    <g font-family="Inter, sans-serif" font-size="10.5" fill="#6a7185" text-anchor="middle">
+      <text x="160" y="232">0</text>
+      <text x="260" y="232">20</text>
+      <text x="360" y="232">40</text>
+      <text x="460" y="232">60</text>
+      <text x="560" y="232">80</text>
+      <text x="660" y="232">100</text>
+    </g>
+    <!-- Zabala 82 -->
+    <g>
+      <text x="150" y="38" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#2c3243" text-anchor="end">Zabala</text>
+      <rect x="160" y="22" width="410" height="28" fill="#1a3a6e" rx="3"/>
+      <text x="580" y="41" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#1a3a6e">82</text>
+    </g>
+    <!-- Franja 70 -->
+    <g>
+      <text x="150" y="78" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#2c3243" text-anchor="end">Franja</text>
+      <rect x="160" y="62" width="350" height="28" fill="#ef6c00" rx="3"/>
+      <text x="520" y="81" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#ef6c00">70</text>
+    </g>
+    <!-- Artecon 67 -->
+    <g>
+      <text x="150" y="118" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#2c3243" text-anchor="end">Artecon</text>
+      <rect x="160" y="102" width="335" height="28" fill="#6a1b9a" rx="3"/>
+      <text x="505" y="121" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#6a1b9a">67</text>
+    </g>
+    <!-- EIP 61 -->
+    <g>
+      <text x="150" y="158" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#2c3243" text-anchor="end">EIP</text>
+      <rect x="160" y="142" width="305" height="28" fill="#00838f" rx="3"/>
+      <text x="475" y="161" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#00838f">61</text>
+    </g>
+    <!-- Eje X -->
+    <line x1="160" y1="215" x2="660" y2="215" stroke="#2c3243" stroke-width="1.5"/>
+  </svg>
+</div>
+
 <table>
   <tr>
     <th rowspan="2">Proponente</th>
@@ -879,6 +1038,76 @@
     <td class="num"><strong>82</strong></td>
   </tr>
 </table>
+
+<div class="chart-card">
+  <p class="chart-title">Perfil comparativo por criterio</p>
+  <p class="chart-subtitle">Puntaje relativo de cada proponente frente al máximo de cada criterio (0 al exterior = mínimo; 100 % = cumplimiento total del peso del criterio)</p>
+  <div class="chart-layout">
+    <svg viewBox="0 0 420 420" width="420" height="420" role="img" aria-label="Radar chart comparativo por criterio">
+      <!-- Grid circles (20%, 40%, 60%, 80%, 100%) -->
+      <g fill="none" stroke="#e1e5ec" stroke-width="1">
+        <circle cx="200" cy="210" r="28"/>
+        <circle cx="200" cy="210" r="56"/>
+        <circle cx="200" cy="210" r="84"/>
+        <circle cx="200" cy="210" r="112"/>
+        <circle cx="200" cy="210" r="140"/>
+      </g>
+      <!-- Axes -->
+      <g stroke="#cbd2dd" stroke-width="1">
+        <line x1="200" y1="210" x2="200" y2="70"/>
+        <line x1="200" y1="210" x2="321.24" y2="140"/>
+        <line x1="200" y1="210" x2="321.24" y2="280"/>
+        <line x1="200" y1="210" x2="200" y2="350"/>
+        <line x1="200" y1="210" x2="78.76" y2="280"/>
+        <line x1="200" y1="210" x2="78.76" y2="140"/>
+      </g>
+      <!-- Axis labels -->
+      <g font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#4a5169" text-anchor="middle">
+        <text x="200" y="56">Experiencia</text>
+        <text x="200" y="44" font-size="9" fill="#6a7185" font-weight="500">(25)</text>
+        <text x="343" y="134">Equipo</text>
+        <text x="343" y="146" font-size="9" fill="#6a7185" font-weight="500">(20)</text>
+        <text x="343" y="284">Metodología</text>
+        <text x="343" y="296" font-size="9" fill="#6a7185" font-weight="500">(20)</text>
+        <text x="200" y="370">Financiero</text>
+        <text x="200" y="382" font-size="9" fill="#6a7185" font-weight="500">(15)</text>
+        <text x="57" y="284">SG-SST</text>
+        <text x="57" y="296" font-size="9" fill="#6a7185" font-weight="500">(10)</text>
+        <text x="57" y="134">Económica</text>
+        <text x="57" y="146" font-size="9" fill="#6a7185" font-weight="500">(10)</text>
+      </g>
+
+      <!-- Zabala (primary, bold) -->
+      <polygon points="200,86.8 309.12,147 296.99,266 200,303.33 78.76,280 127.26,168"
+               fill="#1a3a6e" fill-opacity="0.22" stroke="#1a3a6e" stroke-width="2.5"/>
+      <!-- Franja -->
+      <polygon points="200,103.6 260.62,175 284.87,259 200,303.33 78.76,280 115.13,161"
+               fill="#ef6c00" fill-opacity="0.14" stroke="#ef6c00" stroke-width="2"/>
+      <!-- Artecon -->
+      <polygon points="200,114.8 290.93,157.5 254.56,241.5 200,294 78.76,280 115.13,161"
+               fill="#6a1b9a" fill-opacity="0.12" stroke="#6a1b9a" stroke-width="2"/>
+      <!-- EIP -->
+      <polygon points="200,148.4 254.56,178.5 272.75,252 200,312.67 78.76,280 103.01,154"
+               fill="#00838f" fill-opacity="0.12" stroke="#00838f" stroke-width="2"/>
+
+      <!-- Vertex dots Zabala -->
+      <g fill="#1a3a6e">
+        <circle cx="200" cy="86.8" r="3.5"/>
+        <circle cx="309.12" cy="147" r="3.5"/>
+        <circle cx="296.99" cy="266" r="3.5"/>
+        <circle cx="200" cy="303.33" r="3.5"/>
+        <circle cx="78.76" cy="280" r="3.5"/>
+        <circle cx="127.26" cy="168" r="3.5"/>
+      </g>
+    </svg>
+    <div class="chart-legend">
+      <div class="legend-item"><span class="legend-swatch" style="background:#1a3a6e"></span><span class="legend-label">Zabala Ingenieros</span><span class="legend-value">82</span></div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#ef6c00"></span><span class="legend-label">Franja Construcciones</span><span class="legend-value">70</span></div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#6a1b9a"></span><span class="legend-label">Artecon Arq. Ingenieros</span><span class="legend-value">67</span></div>
+      <div class="legend-item"><span class="legend-swatch" style="background:#00838f"></span><span class="legend-label">EIP Constructora</span><span class="legend-value">61</span></div>
+    </div>
+  </div>
+</div>
 
 <h3 class="subsection">6.1 Justificación resumida por criterio</h3>
 
@@ -977,6 +1206,69 @@
 </table>
 
 <p><strong>Rango de ofertas:</strong> $1.160.864.553 (≈56 % entre la menor y la mayor). <strong>Media aritmética:</strong> $2.631.337.577. EIP se sitúa ≈$268M sobre la menor, Artecon ≈$851M y Zabala ≈$1.161M.</p>
+
+<div class="chart-card">
+  <p class="chart-title">Comparativo económico normalizado</p>
+  <p class="chart-subtitle">Valor total ajustado por proponente (cifras en millones de pesos colombianos)</p>
+  <svg viewBox="0 0 640 340" role="img" aria-label="Gráfico de barras verticales del comparativo económico">
+    <!-- Gridlines horizontales y labels del eje Y -->
+    <g stroke="#e1e5ec" stroke-width="1">
+      <line x1="90" y1="40" x2="620" y2="40"/>
+      <line x1="90" y1="90" x2="620" y2="90"/>
+      <line x1="90" y1="140" x2="620" y2="140"/>
+      <line x1="90" y1="190" x2="620" y2="190"/>
+      <line x1="90" y1="240" x2="620" y2="240"/>
+    </g>
+    <g font-family="Inter, sans-serif" font-size="11" fill="#6a7185" text-anchor="end">
+      <text x="80" y="44">$ 4.000 M</text>
+      <text x="80" y="94">$ 3.000 M</text>
+      <text x="80" y="144">$ 2.000 M</text>
+      <text x="80" y="194">$ 1.000 M</text>
+      <text x="80" y="244">$ 0</text>
+    </g>
+    <!-- Eje Y -->
+    <line x1="90" y1="40" x2="90" y2="240" stroke="#2c3243" stroke-width="1.5"/>
+    <!-- Eje X -->
+    <line x1="90" y1="240" x2="620" y2="240" stroke="#2c3243" stroke-width="1.5"/>
+
+    <!-- Barras (1000M = 50px alto) -->
+    <!-- Franja: 2061 → altura 103.05, y=240-103.05=136.95 -->
+    <g>
+      <rect x="135" y="136.95" width="90" height="103.05" fill="#ef6c00" rx="3"/>
+      <text x="180" y="130" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#ef6c00" text-anchor="middle">$ 2.061 M</text>
+      <text x="180" y="260" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#2c3243" text-anchor="middle">Franja</text>
+      <text x="180" y="275" font-family="Inter, sans-serif" font-size="10" fill="#6a7185" text-anchor="middle">Menor oferta</text>
+    </g>
+    <!-- EIP: 2329 → altura 116.45, y=123.55 -->
+    <g>
+      <rect x="255" y="123.55" width="90" height="116.45" fill="#00838f" rx="3"/>
+      <text x="300" y="117" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#00838f" text-anchor="middle">$ 2.329 M</text>
+      <text x="300" y="260" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#2c3243" text-anchor="middle">EIP</text>
+      <text x="300" y="275" font-family="Inter, sans-serif" font-size="10" fill="#6a7185" text-anchor="middle">+13,0 %</text>
+    </g>
+    <!-- Artecon: 2912 → altura 145.6, y=94.4 -->
+    <g>
+      <rect x="375" y="94.4" width="90" height="145.6" fill="#6a1b9a" rx="3"/>
+      <text x="420" y="88" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#6a1b9a" text-anchor="middle">$ 2.912 M</text>
+      <text x="420" y="260" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#2c3243" text-anchor="middle">Artecon</text>
+      <text x="420" y="275" font-family="Inter, sans-serif" font-size="10" fill="#6a7185" text-anchor="middle">+41,3 %</text>
+    </g>
+    <!-- Zabala: 3222 → altura 161.1, y=78.9 -->
+    <g>
+      <rect x="495" y="78.9" width="90" height="161.1" fill="#1a3a6e" rx="3"/>
+      <text x="540" y="72" font-family="Inter, sans-serif" font-size="13" font-weight="700" fill="#1a3a6e" text-anchor="middle">$ 3.222 M</text>
+      <text x="540" y="260" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#2c3243" text-anchor="middle">Zabala</text>
+      <text x="540" y="275" font-family="Inter, sans-serif" font-size="10" fill="#6a7185" text-anchor="middle">+56,3 %</text>
+    </g>
+
+    <!-- Línea de la media aritmética (2631M) -->
+    <line x1="90" y1="108.5" x2="620" y2="108.5" stroke="#6a7185" stroke-width="1.3" stroke-dasharray="5,4"/>
+    <text x="615" y="104" font-family="Inter, sans-serif" font-size="10.5" font-weight="600" fill="#6a7185" text-anchor="end">Media aritmética $ 2.631 M</text>
+
+    <!-- Eje X label -->
+    <text x="355" y="310" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#4a5169" text-anchor="middle">Alcance común: 1.205,29 m — Cuadro comparativo oficial del proceso</text>
+  </svg>
+</div>
 
 <div class="callout">
   <strong>Nota sobre normalización del cuadro comparativo.</strong> El cuadro comparativo oficial del proceso (Excel de cantidades ajustadas) aplica las cantidades depuradas del formulario oficial a los precios unitarios de cada proponente y normaliza las metodologías de cálculo del AIU, con el fin de obtener valores directamente comparables. Por ello, los totales aquí presentados pueden diferir de los valores reportados en los archivos originales de cada proponente en dos casos relevantes:
